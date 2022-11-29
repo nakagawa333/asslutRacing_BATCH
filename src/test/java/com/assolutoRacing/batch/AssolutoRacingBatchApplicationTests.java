@@ -1,10 +1,10 @@
-package com.asslutRacing.batch;
+package com.assolutoRacing.batch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AsslutRacingBatchApplicationTests {
+class AssolutoRacingBatchApplicationTests {
 
 	@Test
 	void contextLoads() {
