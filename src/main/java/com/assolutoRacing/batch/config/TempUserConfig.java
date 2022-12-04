@@ -15,8 +15,7 @@ public class TempUserConfig {
 	 * 1日毎に作成日時が1日以降の仮ユーザーを削除する。
 	 * @throws Exception 
 	 */
-//	@Scheduled(cron = "${tempUser.daily}")
-	@Scheduled(fixedRate = 5000)
+	@Scheduled(cron = "${tempUser.daily}")
 	@Transactional
 	public void deleteOfAfterOneDay() throws Exception {
 		try {
