@@ -15,11 +15,20 @@ public class TempUserConfig {
 	 * 1日毎に作成日時が1日以降の仮ユーザーを削除する。
 	 * @throws Exception 
 	 */
-	@Scheduled(cron = "${tempUser.daily}")
+//	@Scheduled(cron = "${tempUser.daily}")
+	@Scheduled(fixedRate = 5000)
 	@Transactional
 	public void deleteOfAfterOneDay() throws Exception {
 		try {
+			//作成日時が1日以後のデータを削除する
 			tempUserMapper.deleteOfAfterOneDay();
+		} catch(Exception e) {
+			throw new Exception("仮ユーザーの削除に失敗しました");
+		}
+		
+		try {
+			//登録済ユーザーを削除する
+			tempUserMapper.deleteOfRegistered();
 		} catch(Exception e) {
 			throw new Exception("仮ユーザーの削除に失敗しました");
 		}
